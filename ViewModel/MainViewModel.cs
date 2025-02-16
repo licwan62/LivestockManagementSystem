@@ -2,17 +2,16 @@
 
 public partial class MainViewModel : ObservableObject
 {
-    #region Properties
     Util _util;
     Database _database;
     readonly string defaultResult = "Result showing here";
     [ObservableProperty] ObservableCollection<Livestock> _livestocks;
-    public ObservableCollection<Cow> Cows 
-    { 
-        get => new ObservableCollection<Cow>(Livestocks.OfType<Cow>()); 
+    public ObservableCollection<Cow> Cows
+    {
+        get => new ObservableCollection<Cow>(Livestocks.OfType<Cow>());
     }
-    public ObservableCollection<Sheep> Sheeps 
-    { 
+    public ObservableCollection<Sheep> Sheeps
+    {
         get => new ObservableCollection<Sheep>(Livestocks.OfType<Sheep>());
     }
 
@@ -21,8 +20,9 @@ public partial class MainViewModel : ObservableObject
 
     [ObservableProperty]// Pickers' items
     string[] _types = { "Cow", "Sheep" },
-        _colours = { "All", "White", "Black", "Red" }; 
-    #endregion
+        _colours = { "All", "White", "Black", "Red" };
+
+
     public MainViewModel()
     {
         Livestocks = new ObservableCollection<Livestock>();
